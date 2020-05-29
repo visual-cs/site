@@ -3,18 +3,14 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/visualizations">Visualizations</Link>
-                </li>
-                <li>
-                    <Link to="/about_us">About</Link>
-                </li>
-            </ul>
+        <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+            <div className="navbar-menu">
+                <div className="navbar-start">
+                    <Link className="navbar-item" to="/">/home</Link>
+                    <Link className="navbar-item" to="/visualizations">/visualizations</Link>
+                    <Link className="navbar-item" to="/about_us">/about_us</Link>
+                </div>
+            </div>
         </nav>
     );
 }
