@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "bulma": "^0.8.2",
+    "gh-pages": "^2.2.0",
+    "node-sass": "^4.14.1"
   }
 }
