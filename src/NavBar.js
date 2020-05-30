@@ -6,9 +6,9 @@ function NavBar() {
         <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
             <div className="navbar-menu">
                 <div className="navbar-start">
-                    <Link className="navbar-item" to="/">/home</Link>
-                    <Link className="navbar-item" to="/visualizations">/visualizations</Link>
-                    <Link className="navbar-item" to="/about_us">/about_us</Link>
+                    <Link className="navbar-item is-expanded has-text-weight-semibold is-size-5" to="/">/home</Link>
+                    <Link id="center-item" className="navbar-item is-expanded has-text-weight-semibold is-size-5" to="/visualizations">/visualizations</Link>
+                    <Link className="navbar-item is-expanded has-text-weight-semibold is-size-5" to="/about_us">/about_us</Link>
                 </div>
             </div>
         </nav>
