@@ -1,2 +1,22 @@
 @charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+$family-sans-serif: "Fira Code", sans-serif;
+
+.section {
+    background-color: rgb(1, 239, 239);
+}
+
+.navbar-start { // fixes is-expanded on the navbar items
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+}
+
+.navbar-item {
+    border-style: solid;
+    border-color: black;
+    border-width: medium;
+}
+
 @import "../node_modules/bulma/bulma.sass";
