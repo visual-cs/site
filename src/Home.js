@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
     return (
         <div>
-            <div className="section has-background-white-ter">
+            <div className="section has-background-white-ter has-text-left">
                 <h1 className="title">About</h1>
                 <p>
                 But I must explain to you how all this mistaken 
