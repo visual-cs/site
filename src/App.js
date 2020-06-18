@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import NavBar from './NavBar';
@@ -18,19 +19,13 @@ function App() {
     <Router>
 
       <Title />
-      
       <NavBar />
 
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/about_us">
-          <About />
-        </Route>
-        <Route exact path="/visualizations">
-          <Visual />
-        </Route>
+        <Route exact path="/" render={Home} />
+        <Route exact path="/about_us" render={About} />
+        <Route exact path="/visualizations" render={Visual} />
+        <Redirect to='/' />
       </Switch>
 
     </Router>
