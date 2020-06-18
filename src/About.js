@@ -22,8 +22,8 @@ function About() {
                     </figure>
                   </div>
                   <div class="media-content">
-                    <p class="title is-4">Inle Bush</p>
-                    <p class="subtitle is-6">@imbush</p>
+                    <p class="title is-4">Komron Aripov</p>
+                    <p class="subtitle is-6"><a href="https://github.com/karipov">@karipov</a></p>
                   </div>
                 </div>
 
@@ -50,8 +50,8 @@ function About() {
                     </figure>
                   </div>
                   <div class="media-content">
-                    <p class="title is-4">Komron Aripov</p>
-                    <p class="subtitle is-6">@karipov</p>
+                    <p class="title is-4">Inle Bush</p>
+                    <p class="subtitle is-6"><a href="https://github.com/imbush">@imbush</a></p>
                   </div>
                 </div>
 
