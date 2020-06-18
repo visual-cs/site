@@ -14,7 +14,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "npm run build && cp -r /home/ubuntu/visual-cs/build/* /var/www/visual-cs.org/html/",
+    "deploy": "git pull origin source && npm run build && cp -r /home/ubuntu/visual-cs/build/* /var/www/visual-cs.org/html/ && sudo systemctl restart nginx",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
