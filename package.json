@@ -14,7 +14,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "npm run build && cp -r /home/ubuntu/visual-cs/build/* /var/www/visual-cs.org/html/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
