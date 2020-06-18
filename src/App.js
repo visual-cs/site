@@ -11,6 +11,7 @@ import About from './About';
 import Home from './Home';
 import Visual from './Vis';
 import Title from './Title';
+import Footer from './Footer';
 import './App.scss';
 
 
@@ -28,6 +29,7 @@ function App() {
         <Redirect to='/' />
       </Switch>
 
+      <Footer />
     </Router>
   );
 }
