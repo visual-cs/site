@@ -6,14 +6,14 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import NavBar from './NavBar';
-import About from './About';
-import Home from './Home';
-import Visual from './Vis';
-import Title from './Title';
-import Footer from './Footer';
+import NavBar from './common/NavBar';
+import About from './pages/About';
+import Home from './pages/Home';
+import Visual from './pages/Vis';
+import Title from './common/Title';
+import Footer from './common/Footer';
 import './App.scss';
-
+import FirstVis from './visual/FirstVis';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route exact path="/" render={Home} />
         <Route exact path="/about_us" render={About} />
         <Route exact path="/visualizations" render={Visual} />
+        <Route exact path="/example_vis" render={FirstVis} />
         <Redirect to='/' />
       </Switch>
 
