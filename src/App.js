@@ -6,12 +6,12 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import Title from './common/Title';
 import NavBar from './common/NavBar';
+import Footer from './common/Footer';
 import About from './pages/About';
 import Home from './pages/Home';
 import Visual from './pages/Vis';
-import Title from './common/Title';
-import Footer from './common/Footer';
 import './App.scss';
 import FirstVis from './visual/FirstVis';
 
