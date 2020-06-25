@@ -18,17 +18,19 @@ import FirstVis from './visual/FirstVis';
 function App() {
   return (
     <Router>
-
+      
       <Title />
       <NavBar />
-
-      <Switch>
-        <Route exact path="/" render={Home} />
-        <Route exact path="/about_us" render={About} />
-        <Route exact path="/visual" render={Visual} />
-        <Route exact path="/example_vis" render={FirstVis} />
-        <Redirect to='/' />
-      </Switch>
+      
+      <div className="container">
+        <Switch>
+          <Route exact path="/" render={Home} />
+          <Route exact path="/about_us" render={About} />
+          <Route exact path="/visual" render={Visual} />
+          <Route exact path="/example_vis" render={FirstVis} />
+          <Redirect to='/' />
+        </Switch>
+      </div>
 
       <Footer />
     </Router>

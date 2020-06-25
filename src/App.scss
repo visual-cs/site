@@ -6,11 +6,17 @@
 $family-sans-serif: "Fira Code", sans-serif;
 $navbar-breakpoint: 0;
 
+body {
+    background-color: hsl(0, 0%, 96%);
+}
+
+
 // custom css
 .navbar-start { // fixes is-expanded on the navbar items
     flex-grow: 1;
     flex-shrink: 1;
     display: flex;
+    text-align: center;
 }
 
 .navbar-item {

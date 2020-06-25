@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
   return (
     <div>
-      <div className="section has-background-white-ter">
+      <div className="section">
         <h1 className="title">About</h1>
         <p>
         But I must explain to you how all this mistaken 
@@ -14,7 +14,7 @@ function Home() {
         the master-builder of human happiness: dat ass.
         </p>
       </div>
-      <div className="section has-background-white-ter">
+      <div className="section">
         <h1 className="title">Progress</h1>
         <p>
         To take a trivial example, which of us ever 

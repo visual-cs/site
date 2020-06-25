@@ -28,7 +28,7 @@ function cardioid (p) {
 export default function FirstVis() {
     return(
         <div>
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <p className="subtitle is-10">
                     As the inaugural post on our new website, I would like 
                     to begin by saying “Hello World!” and expressing my 
@@ -37,7 +37,7 @@ export default function FirstVis() {
                 </p>    
             </div>
             
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <h1 className="title">Epicycloids by Inle Bush</h1>
                 <p>
                     An epicycloid is the curve traced by following a point on 
@@ -46,11 +46,11 @@ export default function FirstVis() {
                 </p>
             </div>
 
-            <div className="section has-background-white-ter">
+            <div className="section">
                 [// gif of rolling circle]
             </div>
 
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <p>
                     If the outer circle has radius r and the inner circle has 
                     radius R, we can define the ratio between these two sides, 
@@ -58,11 +58,11 @@ export default function FirstVis() {
                 </p>
             </div>
             
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <P5Wrapper sketch={cardioid} />
             </div>
             
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <p>
                     For integer k, the number of “leaves” on the epicyclod is equal 
                     to k. For rational k, p/q as an irreducible fraction, then k has 
@@ -72,11 +72,11 @@ export default function FirstVis() {
                 </p>
             </div>
             
-            <div className="section has-background-white-ter">
+            <div className="section">
                 [// image epicycloid where k=pi]
             </div>
 
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <p>
                     Interestingly, for any epicycloid with integer k, the 
                     epicycloid will have cusps (inner points) at all fractions 
@@ -93,11 +93,11 @@ export default function FirstVis() {
 
             </div>
             
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <P5Wrapper sketch={cardioid} />
             </div>
 
-            <div className="section has-background-white-ter">
+            <div className="section">
                 <p>
                     If n is increased to infinity, the angle placements of each of the 
                     cusps in the image will represent every rational numbers. I find 
