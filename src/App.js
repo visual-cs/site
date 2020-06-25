@@ -25,7 +25,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route exact path="/" render={Home} />
-          <Route exact path="/about_us" render={About} />
+          <Route exact path="/about" render={About} />
           <Route exact path="/visual" render={Visual} />
           <Route exact path="/example_vis" render={FirstVis} />
           <Redirect to='/' />
