@@ -3,6 +3,7 @@ import P5Wrapper from 'react-p5-wrapper';
 
 function epicycloid (p) {
     let inner;
+    let ratioSlider;
     let path, radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
     let speed = 0.1;//angle per update
     let ang = 0;
@@ -21,42 +22,45 @@ function epicycloid (p) {
         path.strokeWeight(2);
         path.stroke(220, 30, 30);
     
-        p.ratioSlider = p.createSlider(-10, 10, 1, 2);
-        p.ratioSlider.position(1000,70);
-        p.ratio = p.ratioSlider.value();
-        p.frameRate(60);
+        ratioSlider = p.createSlider(-10, 10, 1, 2);
+        ratioSlider.size(p.width);
+        ratioSlider.parent('slider');
+        p.ratio = ratioSlider.value();
+        p.frameRate(30);
         p.stroke(25)
         p.strokeWeight(3);
         p.fill(255);
     }
     
     p.mouseClicked = function () {
-        mode = (mode + 1) % 2;
+        if(p.mouseX > 0 && p.mouseY > 0 && p.mouseX < p.width && p.mouseY < p.height){
+            mode = (mode + 1) % 2;
+        }
     }
     
     p.draw = function () {
         for ( let i = 0; i < 10; i++) {
         p.background(153);
-        if (p.ratioSlider.value() !== p.ratio) {
-            p.ratio = p.ratioSlider.value()
+        if (ratioSlider.value() !== ratio) {
+            ratio = ratioSlider.value()
             path.clear(); //resets path if ratio is changed
     
         }
-        p.text(p.ratioSlider.value(), p.ratioSlider.x * 2 + p.ratioSlider.width, 15);
+        p.text(ratioSlider.value(), ratioSlider.x * 2 + ratioSlider.width, 15);
     
         
         
-        if (p.ratioSlider.value() >= -1 && p.ratioSlider.value() <= 0) {
-            p.ratio = -1.1;
+        if (ratioSlider.value() >= -1 && ratioSlider.value() <= 0) {
+            ratio = -1.1;
         }   else {
-            p.ratio = p.ratioSlider.value(); // ratio = (inner radius : outer radius)
+            ratio = ratioSlider.value(); // ratio = (inner radius : outer radius)
         }
         
             radOut = radIn / ratio;
             xCentOut = p.width / 2 + (radOut + radIn) * p.cos(ang);
             yCentOut = p.height / 2 + (radOut + radIn) * p.sin(ang);
     
-            if (mode === 1){
+            if (mode === 0){
                 p.circle(p.width/2, p.height/2, 2 * radIn);// inner Circle
                 p.circle(xCentOut, yCentOut, 2 * radOut);
             }
@@ -66,6 +70,7 @@ function epicycloid (p) {
             ptX = p.width / 2 + (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
             ptY = p.height / 2 + (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
             path.point(ptX, ptY);
+            console.log(ptX, ptY);
     
             p.line(xCentOut, yCentOut, ptX, ptY);
             ang -= speed;
@@ -132,7 +137,7 @@ export default function epicycloid_html() {
                     As the inaugural post on our new website, I would like 
                     to begin by saying “Hello World!” and expressing my 
                     hope that you enjoy the site. It was an adventure to 
-                    build and we had a lot of fun doing so. :)
+                    build and we had a lot of fun doing so.
                 </p>    
             </div>
             
@@ -146,8 +151,8 @@ export default function epicycloid_html() {
                 </p>
             </div>
 
-            <div class="columns is-mobile is-centered">
-                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas1">
+            <div className="columns is-mobile is-centered">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas1">
                     [// gif of rolling circle]
                 </div>
             </div>
@@ -160,11 +165,17 @@ export default function epicycloid_html() {
                 </p>
             </div>
 
-            <div class="columns is-mobile is-centered">
-                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
+            <div className="columns is-mobile is-centered">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
                     <P5Wrapper sketch={epicycloid}/>
                 </div>
             </div>
+            <div className="columns is-mobile is-centered">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
+                <div className="is-centered" id="slider"></div>
+                </div>
+            </div>
+            
             
             <div className="section">
                 <p>
@@ -176,8 +187,8 @@ export default function epicycloid_html() {
                 </p>
             </div>
 
-            <div class="columns is-mobile is-centered">
-                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas3">
+            <div className="columns is-mobile is-centered">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas3">
                     <p>[// image epicycloid where k=pi]</p>
                 </div>
             </div>
@@ -198,8 +209,8 @@ export default function epicycloid_html() {
                 </p>
             </div>
 
-            <div class="columns is-mobile is-centered">
-                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas4">
+            <div className="columns is-mobile is-centered">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas4">
                     <P5Wrapper sketch={epicycloid_trace}/>
                 </div>
             </div>

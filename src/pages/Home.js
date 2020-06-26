@@ -11,7 +11,7 @@ function Home() {
         pain was born and I will give you a complete 
         account of the system, and expound the actual 
         teachings of the great explorer of the truth, 
-        the master-builder of human happiness: dat ass.
+        the master-builder of human happiness: Nicolas Padula Pinho.
         </p>
         <br />
         <h1 className="title is-3">Progress</h1>
