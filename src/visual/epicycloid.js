@@ -9,8 +9,9 @@ function epicycloid (p) {
     let mode = 0;
     
     p.setup = function () {
-        inner = document.getElementById('P5Canvas').getBoundingClientRect();
-        p.createCanvas(inner.width, inner.width);
+        inner = document.getElementById('P5Canvas2').getBoundingClientRect();
+        let canvas = p.createCanvas(inner.width, inner.width);
+        canvas.parent("P5Canvas2")
         p.angleMode(p.DEGREES);
         // strokeWeight(2);
         radIn = p.width / 5;
@@ -84,10 +85,11 @@ function epicycloid_trace(p) {
     
     
     p.setup = function () {
-        inner = document.getElementById('P5Canvas').getBoundingClientRect();
-        p.createCanvas(inner.width, inner.width);
-      p.background(20, 10, 30);
-      p.mouseClicked();
+        inner = document.getElementById('P5Canvas4').getBoundingClientRect();
+        let canvas = p.createCanvas(inner.width, inner.width);
+        canvas.parent("P5Canvas4");
+        p.background(20, 10, 30);
+        p.mouseClicked();
     }
     
     
@@ -135,7 +137,8 @@ export default function epicycloid_html() {
             </div>
             
             <div className="section">
-                <h1 className="title">Epicycloids by Inle Bush</h1>
+                <h1 className="title is-3">Epicycloids</h1>
+                <h1 className="subtitle is-3">by Inle Bush</h1>
                 <p>
                     An epicycloid is the curve traced by following a point on 
                     the circumference of one circle rolling around another. 
@@ -143,8 +146,10 @@ export default function epicycloid_html() {
                 </p>
             </div>
 
-            <div className="section">
-                [// gif of rolling circle]
+            <div class="columns is-mobile is-centered">
+                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas1">
+                    [// gif of rolling circle]
+                </div>
             </div>
 
             <div className="section">
@@ -154,9 +159,11 @@ export default function epicycloid_html() {
                     R/r = k. Varying k results in some interesting patterns.
                 </p>
             </div>
-            
-            <div className="section">
-                <P5Wrapper sketch={epicycloid} />
+
+            <div class="columns is-mobile is-centered">
+                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
+                    <P5Wrapper sketch={epicycloid}/>
+                </div>
             </div>
             
             <div className="section">
@@ -168,9 +175,11 @@ export default function epicycloid_html() {
                     with inner radius R and outer radius R + 2r.
                 </p>
             </div>
-            
-            <div className="section">
-                [// image epicycloid where k=pi]
+
+            <div class="columns is-mobile is-centered">
+                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas3">
+                    <p>[// image epicycloid where k=pi]</p>
+                </div>
             </div>
 
             <div className="section">
@@ -190,7 +199,7 @@ export default function epicycloid_html() {
             </div>
 
             <div class="columns is-mobile is-centered">
-                <div class="column is-half is-full-mobile" id="P5Canvas">
+                <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas4">
                     <P5Wrapper sketch={epicycloid_trace}/>
                 </div>
             </div>
