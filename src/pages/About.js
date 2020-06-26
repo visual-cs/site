@@ -5,8 +5,7 @@ function About() {
       <div>
         <div className="section">
           <h1 className="title is-1 has-text-centered">Meet Us:</h1>
-        </div>
-        <div className="section">
+          <br />
           <div className="columns">
             <div className="column is-5 is-offset-1">
               <div class="card">
