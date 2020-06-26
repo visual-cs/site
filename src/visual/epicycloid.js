@@ -2,20 +2,72 @@ import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
 function epicycloid (p) {
-    var x = 0;
-
+    let path, radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
+    let speed = 0.1;//angle per update
+    let ang = 0;
+    let mode = 0;
+    
     p.setup = function () {
-        p.createCanvas(600, 400);
+        p.createCanvas(500, 500);
+        p.angleMode(p.DEGREES);
+        // strokeWeight(2);
+        radIn = p.width / 5;
+    
+        //image for path
+        path = p.createGraphics(p.width, p.height);
+        path.strokeWeight(2);
+        path.stroke(220, 30, 30);
+    
+        p.ratioSlider = p.createSlider(-10, 10, 1, 2);
+        p.ratioSlider.position(10,70);
+        p.ratio = p.ratioSlider.value();
+        p.frameRate(60);
+        p.stroke(25)
+        p.strokeWeight(3);
+        p.fill(255);
     }
-  
-    p.draw = function () {
-        p.background(0, 0, 0, 50);
-        p.circle(300, 200 + 100 * p.sin(x), 30);
-        x += 0.1;
-    }
-
+    
     p.mouseClicked = function () {
-        p.square(10, 10, 50);
+        mode = (mode + 1) % 2;
+    }
+    
+    p.draw = function () {
+        for ( let i = 0; i < 10; i++) {
+        p.background(153);
+        if (p.ratioSlider.value() !== p.ratio) {
+            p.ratio = p.ratioSlider.value()
+            path.clear(); //resets path if ratio is changed
+    
+        }
+        p.text(p.ratioSlider.value(), p.ratioSlider.x * 2 + p.ratioSlider.width, 15);
+    
+        
+        
+        if (p.ratioSlider.value() >= -1 && p.ratioSlider.value() <= 0) {
+            p.ratio = -1.1;
+        }   else {
+            p.ratio = p.ratioSlider.value(); // ratio = (inner radius : outer radius)
+        }
+        
+            radOut = radIn / ratio;
+            xCentOut = p.width / 2 + (radOut + radIn) * p.cos(ang);
+            yCentOut = p.height / 2 + (radOut + radIn) * p.sin(ang);
+    
+            if (mode === 1){
+                p.circle(p.width/2, p.height/2, 2 * radIn);// inner Circle
+                p.circle(xCentOut, yCentOut, 2 * radOut);
+            }
+    
+    
+            p.line(p.width/2, p.height/2, xCentOut, yCentOut);
+            ptX = p.width / 2 + (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
+            ptY = p.height / 2 + (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
+            path.point(ptX, ptY);
+    
+            p.line(xCentOut, yCentOut, ptX, ptY);
+            ang -= speed;
+        }
+        p.image(path, 0, 0);
     }
 }
 
