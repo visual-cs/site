@@ -13,7 +13,7 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Visual from './pages/Vis';
 import './App.scss';
-import FirstVis from './visual/FirstVis';
+import epicycloid from './visual/epicycloid.js';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/" render={Home} />
           <Route exact path="/about" render={About} />
           <Route exact path="/visual" render={Visual} />
-          <Route exact path="/example_vis" render={FirstVis} />
+          <Route exact path="/visual/epicycloid" render={epicycloid} />
           <Redirect to='/' />
         </Switch>
       </div>

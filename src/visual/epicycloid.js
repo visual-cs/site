@@ -1,31 +1,71 @@
 import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
-function cardioid (p) {
+function epicycloid (p) {
     var x = 0;
 
     p.setup = function () {
         p.createCanvas(600, 400);
-    };
-  
-    // p.myCustomRedrawAccordingToNewPropsHandlers = function (props) {
-    //     if (props.rotation) {
-    //         rotation = props.rotation * Math.PI / 180;
-    //     }
-    // };
+    }
   
     p.draw = function () {
         p.background(0, 0, 0, 50);
         p.circle(300, 200 + 100 * p.sin(x), 30);
         x += 0.1;
-    };
+    }
 
     p.mouseClicked = function () {
         p.square(10, 10, 50);
     }
-};
+}
 
-export default function FirstVis() {
+function epicycloid_trace(p) {
+    let ratio = 0; //Outer to innner radius
+    let radOut = 150 / (ratio + 1);
+    let radIn = radOut * ratio;
+    let limit = 2;
+    let increment = 0.001;
+    let ptX, ptY;
+    
+    
+    p.setup = function () {
+      p.createCanvas(500, 500);
+      p.background(20, 10, 30);
+    }
+    
+    
+    p.mouseClicked = function () {
+        p.stroke(155, 140, 255, 30);
+        
+        p.noFill();
+        p.push();
+        p.translate(p.width / 2, p.height / 2);
+        
+        for (let i = 1; i < limit; i ++) {
+            ratio += 1;
+            radOut = p.width * 5 / 12 / (ratio + 2); // Width * 5/12 is maximum radius
+            radIn = radOut * ratio;
+            for (let ang = 0; ang <= p.TWO_PI; ang += increment) {
+                ptX = (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
+                ptY = (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
+                p.point(ptX, ptY);
+            }
+        }
+        p.pop();
+    
+        p.fill(20, 10, 30);
+        p.noStroke();
+        p.rect(0, 0, p.width / 5, p.height / 5) //Background for text
+    
+        p.stroke(255);
+        p.noStroke();
+        p.textSize(p.width / 20);
+        p.fill(255);
+        p.text(`k = ${ratio}`, p.width / 50 , p.height * 3 / 50);
+    }
+}
+
+export default function epicycloid_html() {
     return(
         <div>
             <div className="section">
@@ -59,7 +99,7 @@ export default function FirstVis() {
             </div>
             
             <div className="section">
-                <P5Wrapper sketch={cardioid} />
+                <P5Wrapper sketch={epicycloid} />
             </div>
             
             <div className="section">
@@ -93,8 +133,8 @@ export default function FirstVis() {
 
             </div>
             
-            <div className="section">
-                <P5Wrapper sketch={cardioid} />
+            <div className="box">
+                <P5Wrapper sketch={epicycloid_trace} className ="box is-centered"/>
             </div>
 
             <div className="section">
