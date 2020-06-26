@@ -44,8 +44,7 @@ function About() {
                     </div>
                   </div>
                   <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris.
+                    Programmer and student biologist. Learning to code and coding to learn.
                   </div>
                 </div>
               </div>
