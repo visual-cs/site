@@ -10,7 +10,7 @@ function Visual() {
               <p class="title">Epicycloid</p>
               <p class="subtitle">by Inle Bush</p>
               <figure class="image is-square">
-                <img src="images/epicycloid_trace.jpg" alt="cardiod"></img>
+                <img src="images/visual/epicycloid_trace.jpg" alt="cardiod"></img>
               </figure>
             </article>
         </Link>

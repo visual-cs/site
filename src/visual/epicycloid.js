@@ -2,13 +2,15 @@ import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
 function epicycloid (p) {
+    let inner;
     let path, radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
     let speed = 0.1;//angle per update
     let ang = 0;
     let mode = 0;
     
     p.setup = function () {
-        p.createCanvas(500, 500);
+        inner = document.getElementById('P5Canvas').getBoundingClientRect();
+        p.createCanvas(inner.width, inner.width);
         p.angleMode(p.DEGREES);
         // strokeWeight(2);
         radIn = p.width / 5;
@@ -19,7 +21,7 @@ function epicycloid (p) {
         path.stroke(220, 30, 30);
     
         p.ratioSlider = p.createSlider(-10, 10, 1, 2);
-        p.ratioSlider.position(10,70);
+        p.ratioSlider.position(1000,70);
         p.ratio = p.ratioSlider.value();
         p.frameRate(60);
         p.stroke(25)
@@ -72,6 +74,7 @@ function epicycloid (p) {
 }
 
 function epicycloid_trace(p) {
+    let inner;
     let ratio = 0; //Outer to innner radius
     let radOut = 150 / (ratio + 1);
     let radIn = radOut * ratio;
@@ -81,8 +84,10 @@ function epicycloid_trace(p) {
     
     
     p.setup = function () {
-      p.createCanvas(500, 500);
+        inner = document.getElementById('P5Canvas').getBoundingClientRect();
+        p.createCanvas(inner.width, inner.width);
       p.background(20, 10, 30);
+      p.mouseClicked();
     }
     
     
@@ -182,11 +187,12 @@ export default function epicycloid_html() {
                     with denominator {'<='} n. In other words, this program displays all 
                     rational numbers, p/q, where q {'<='} n.
                 </p>
-
             </div>
-            
-            <div className="box">
-                <P5Wrapper sketch={epicycloid_trace} className ="box is-centered"/>
+
+            <div class="columns is-mobile is-centered">
+                <div class="column is-half is-full-mobile" id="P5Canvas">
+                    <P5Wrapper sketch={epicycloid_trace}/>
+                </div>
             </div>
 
             <div className="section">

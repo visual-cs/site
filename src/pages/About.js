@@ -11,7 +11,7 @@ function About() {
               <div className="card">
                 <div className="card-image">
                   <figure className="image">
-                    <img src="images/komron.png" alt="komron"></img>
+                    <img src="images/about/komron.png" alt="komron"></img>
                   </figure>
                 </div>
                 <div className="card-content">
@@ -33,7 +33,7 @@ function About() {
               <div className="card">
                 <div className="card-image">
                   <figure className="image is-">
-                    <img src="images/inle.png" alt="inle"></img>
+                    <img src="images/about/inle.png" alt="inle"></img>
                   </figure>
                 </div>
                 <div className="card-content">
