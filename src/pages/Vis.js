@@ -5,7 +5,7 @@ function Visual() {
   return (
     <div className="section">
       <div class="tile is-ancestor">
-        <div class="tile is-parent">
+        <Link className="tile is-parent" to="/visual/tenprint">
           <article class="tile is-child box">
             <p class="title">Tenprint</p>
             <p class="subtitle">by Inle Bush</p>
@@ -13,7 +13,7 @@ function Visual() {
               <img src="images/visual/tenprint.jpg" alt="tenprint"></img>
             </figure>
           </article>
-        </div>
+        </Link>
         
         <Link className="tile is-parent" to="/visual/epicycloid">
           <article class="tile is-child box">

@@ -13,7 +13,9 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Visual from './pages/Vis';
 import './App.scss';
-import epicycloid from './visual/epicycloid.js';
+
+import epicycloid_html from './visual/epicycloid.js';
+import tenprint_html from './visual/tenprint.js';
 
 function App() {
   return (
@@ -27,7 +29,8 @@ function App() {
           <Route exact path="/" render={Home} />
           <Route exact path="/about" render={About} />
           <Route exact path="/visual" render={Visual} />
-          <Route exact path="/visual/epicycloid" render={epicycloid} />
+          <Route exact path="/visual/epicycloid" render={epicycloid_html} />
+          <Route exact path="/visual/tenprint" render={tenprint_html} />
           <Redirect to='/' />
         </Switch>
       </div>

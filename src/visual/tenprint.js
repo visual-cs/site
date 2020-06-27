@@ -8,7 +8,6 @@ function epicycloid (p) {
     let speed = 0.1;//angle per update
     let ang = 0;
     let mode = 0;
-    let increment = 0.1;
     
     p.setup = function () {
         inner = document.getElementById('P5Canvas2').getBoundingClientRect();
@@ -23,11 +22,12 @@ function epicycloid (p) {
         path.strokeWeight(2);
         path.stroke(220, 30, 30);
     
-        ratioSlider = p.createSlider(-10, 10, 1, increment);
+        ratioSlider = p.createSlider(-10, 10, 1, 2);
         ratioSlider.size(p.width);
         ratioSlider.parent('slider');
         p.ratio = ratioSlider.value();
         p.frameRate(30);
+        p.stroke(25)
         p.strokeWeight(3);
         p.fill(255);
     }
@@ -39,18 +39,22 @@ function epicycloid (p) {
     }
     
     p.draw = function () {
-        p.background(153);
-        p.stroke(25);
-        p.fill(255);
-
-        if (ratioSlider.value() !== ratio) {
-            (ratioSlider.value >= -1 && ratioSlider.value <= 0) ? (ratio = increment) : (ratio = ratioSlider.value());
-            path.clear(); //resets path if ratio is changed
-            ang = 0;
-        }
-
         for ( let i = 0; i < 10; i++) {
-            
+        p.background(153);
+        if (ratioSlider.value() !== ratio) {
+            ratio = ratioSlider.value()
+            path.clear(); //resets path if ratio is changed
+    
+        }
+        p.text(ratio, p.width/50, p.height * 3 / 50);
+    
+        
+        
+        if (ratioSlider.value() >= -1 && ratioSlider.value() <= 0) {
+            ratio = -1.1;
+        }   else {
+            ratio = ratioSlider.value(); // ratio = (inner radius : outer radius)
+        }
         
             radOut = radIn / ratio;
             xCentOut = p.width / 2 + (radOut + radIn) * p.cos(ang);
@@ -72,11 +76,6 @@ function epicycloid (p) {
             ang -= speed;
         }
         p.image(path, 0, 0);
-
-        p.noStroke();
-        p.fill(0);
-        p.textSize(p.width / 20);
-        p.text(`n = ${ratio}`, p.width / 50 , p.height * 3 / 50);
     }
 }
 
@@ -130,20 +129,20 @@ function epicycloid_trace(p) {
     }
 }
 
-export default function epicycloid_html() {
+export default function tenprint_html() {
     return(
         <div>
             <div className="section">
-                <h1 className="title is-1">Epicycloids</h1>
+                <h1 className="title is-1">10 Print</h1>
                 <h1 className="subtitle is-4">Inle Bush, Jun 2021</h1>
                 <br />
                 <h1 className="title is-2">Introduction</h1>
                 <p>
                     An epicycloid is the curve traced by following a point on 
                     the circumference of one circle rolling around another.
-                    If the outer circle has radius <b><i>r</i></b> and the inner circle has 
-                    radius <b><i>R</i></b>, we can define the ratio between these two sides, 
-                    <b><i>R/r = k</i></b>. Varying k results in interesting patterns, 
+                    If the outer circle has radius r and the inner circle has 
+                    radius R, we can define the ratio between these two sides, 
+                    R/r = k. Varying k results in interesting patterns, 
                     demonstrated in the following visualization.
                 </p>
             </div>
@@ -183,7 +182,7 @@ export default function epicycloid_html() {
 
             <div className="columns is-mobile is-centered">
                 <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
-                    <img src="images/visual/pi_epicycloid.jpg" alt="pi epicycloid"></img>
+                    <p>[// image epicycloid where k=pi]</p>
                 </div>
             </div>
 
