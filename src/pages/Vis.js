@@ -7,7 +7,7 @@ function Visual() {
       <div class="tile is-ancestor">
         <Link className="tile is-parent" to="/visual/tenprint">
           <article class="tile is-child box">
-            <p class="title">Tenprint</p>
+            <p class="title">10 print</p>
             <p class="subtitle">by Inle Bush</p>
             <figure class="image is-square">
               <img src="images/visual/tenprint.jpg" alt="tenprint"></img>
@@ -17,7 +17,7 @@ function Visual() {
         
         <Link className="tile is-parent" to="/visual/epicycloid">
           <article class="tile is-child box">
-            <p class="title">Epicycloid</p>
+            <p class="title">Epicycloids</p>
             <p class="subtitle">by Inle Bush</p>
             <figure class="image is-square">
               <img src="images/visual/epicycloid_trace.jpg" alt="cardiod"></img>
