@@ -6,17 +6,18 @@ function Home() {
       <div className="section">
         <h1 className="title is-3">About</h1>
         <p>
-        But I must explain to you how all this mistaken 
-        idea of denouncing of a pleasure and praising 
-        pain was born and I will give you a complete 
-        account of the system, and expound the actual 
-        teachings of the great explorer of the truth, 
-        the master-builder of human happiness: Nicolas Padula Pinho.
+        Visual-CS is a website which hosts and explains computer generated visualizations. 
+        Visualization topics range from mathematical explorations to generative art pieces. 
+        Many of our posts will cover visualizations already present online or in the 
+        literature. For these visualizations, we hope to both explain the process of 
+        creating the visualization and expand upon it in some way. Ultimately, this website 
+        is a labor of love. It was made because we enjoyed creating and we thought others 
+        might enjoy our creations too. 
         </p>
         <br />
         <h1 className="title is-3">Progress</h1>
         <p>
-          This website is stil in progress. We are currently working 
+          This website is still in progress. We are currently working 
           on creating general stylization classes and integrating our 
           p5.js sketches with mobile and bulma. You can follow program 
           progress at <a href="https://t.me/inlesmusings">Inle's telegram channel.</a>
