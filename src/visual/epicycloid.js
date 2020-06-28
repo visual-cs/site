@@ -2,21 +2,19 @@ import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
 function epicycloid (p) {
-    let inner;
-    let ratioSlider;
-    let path, radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
+    let inner, ratioSlider, path;
+    let radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
     let speed = 0.1;//angle per update
     let ang = 0;
     let mode = 0;
     let increment = 0.1;
     
     p.setup = function () {
-        inner = document.getElementById('P5Canvas2').getBoundingClientRect();
+        inner = document.getElementById('P5Canvas1').getBoundingClientRect();
         let canvas = p.createCanvas(inner.width, inner.width);
-        canvas.parent("P5Canvas2")
+        canvas.parent("P5Canvas1")
         p.angleMode(p.DEGREES);
-        // strokeWeight(2);
-        radIn = p.width / 5;
+        radIn = p.width / 6.1;
     
         //image for path
         path = p.createGraphics(p.width, p.height);
@@ -26,7 +24,7 @@ function epicycloid (p) {
         ratioSlider = p.createSlider(-10, 10, 1, increment);
         ratioSlider.size(p.width);
         ratioSlider.parent('slider');
-        p.ratio = ratioSlider.value();
+        ratio = ratioSlider.value();
         p.frameRate(30);
         p.strokeWeight(3);
         p.fill(255);
@@ -76,7 +74,7 @@ function epicycloid (p) {
         p.noStroke();
         p.fill(0);
         p.textSize(p.width / 20);
-        p.text(`n = ${ratio}`, p.width / 50 , p.height * 3 / 50);
+        p.text(`k = ${ratio}`, p.width / 50 , p.height * 3 / 50);
     }
 }
 
@@ -91,42 +89,44 @@ function epicycloid_trace(p) {
     
     
     p.setup = function () {
-        inner = document.getElementById('P5Canvas4').getBoundingClientRect();
+        inner = document.getElementById('P5Canvas2').getBoundingClientRect();
         let canvas = p.createCanvas(inner.width, inner.width);
-        canvas.parent("P5Canvas4");
+        canvas.parent("P5Canvas2");
         p.background(20, 10, 30);
         p.mouseClicked();
     }
     
     
     p.mouseClicked = function () {
-        p.stroke(155, 140, 255, 30);
-        
-        p.noFill();
-        p.push();
-        p.translate(p.width / 2, p.height / 2);
-        
-        for (let i = 1; i < limit; i ++) {
-            ratio += 1;
-            radOut = p.width * 5 / 12 / (ratio + 2); // Width * 5/12 is maximum radius
-            radIn = radOut * ratio;
-            for (let ang = 0; ang <= p.TWO_PI; ang += increment) {
-                ptX = (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
-                ptY = (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
-                p.point(ptX, ptY);
+        if((p.mouseX > 0 && p.mouseY > 0 && p.mouseX < p.width && p.mouseY < p.height) || ratio === 0){
+            p.stroke(155, 140, 255, 30);
+            
+            p.noFill();
+            p.push();
+            p.translate(p.width / 2, p.height / 2);
+            
+            for (let i = 1; i < limit; i ++) {
+                ratio += 1;
+                radOut = p.width * 5 / 12 / (ratio + 2); // Width * 5/12 is maximum radius
+                radIn = radOut * ratio;
+                for (let ang = 0; ang <= p.TWO_PI; ang += increment) {
+                    ptX = (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
+                    ptY = (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
+                    p.point(ptX, ptY);
+                }
             }
+            p.pop();
+        
+            p.fill(20, 10, 30);
+            p.noStroke();
+            p.rect(0, 0, p.width / 5, p.height / 5) //Background for text
+        
+            p.stroke(255);
+            p.noStroke();
+            p.textSize(p.width / 20);
+            p.fill(255);
+            p.text(`n = ${ratio}`, p.width / 50 , p.height * 3 / 50);
         }
-        p.pop();
-    
-        p.fill(20, 10, 30);
-        p.noStroke();
-        p.rect(0, 0, p.width / 5, p.height / 5) //Background for text
-    
-        p.stroke(255);
-        p.noStroke();
-        p.textSize(p.width / 20);
-        p.fill(255);
-        p.text(`n = ${ratio}`, p.width / 50 , p.height * 3 / 50);
     }
 }
 
@@ -134,7 +134,7 @@ export default function epicycloid_html() {
     return(
         <div>
             <div className="section">
-                <h1 className="title is-1">Epicycloids</h1>
+                <h1 className="title is-size-1-desktop is-size-2-mobile">Epicycloids</h1>
                 <h1 className="subtitle is-4">Inle Bush, Jun 2021</h1>
                 <br />
                 <h1 className="title is-2">Introduction</h1>
@@ -155,7 +155,7 @@ export default function epicycloid_html() {
             </div>
 
             <div className="columns is-mobile is-centered">
-                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas1">
                     <P5Wrapper sketch={epicycloid}/>
                 </div>
             </div>
@@ -166,14 +166,14 @@ export default function epicycloid_html() {
             </div>
             
             <div className="columns is-mobile is-centered">
-                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
+                <div className="column is-three-quarters-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
                     <p>Click on this visualization to hide the circles. Use the slider to adjust k.</p>
                 </div>
             </div>
             
             <div className="section">
                 <p>
-                    For integer k, the number of “leaves” on the epicyclod is equal 
+                    For integer k, the number of “leaves” on the epicycloid is equal 
                     to k. For rational k, p/q as an irreducible fraction, then k has 
                     p “leaves”. Setting k to an irrational number, like pi, causes a 
                     non repeating path which eventually fills the entire annulus (donut) 
@@ -210,13 +210,13 @@ export default function epicycloid_html() {
             </div>
 
             <div className="columns is-mobile is-centered">
-                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas4">
+                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd" id="P5Canvas2">
                     <P5Wrapper sketch={epicycloid_trace}/>
                 </div>
             </div>
 
             <div className="columns is-mobile is-centered">
-                <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
+                <div className="column is-three-quarters-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
                     <p>Click on this visualization to increase n.</p>
                 </div>
             </div>
