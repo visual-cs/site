@@ -224,8 +224,7 @@ export default function epicycloid_html() {
             <div className="section">
                 <p>
                     If n is increased to infinity, the angle placements of each of the 
-                    cusps in the image will represent every rational numbers. I find 
-                    this pretty cool.
+                    cusps in the image will represent every rational number.
                 </p>
             </div>
 
@@ -235,14 +234,14 @@ export default function epicycloid_html() {
                 <p className="content">
                     There are 4 variables determining the position of the point:
                 </p>
-                <ol type="1">
+                <dl>
                     <li><b>Angle1</b> {'-->'} the angle offsetting the center of the outer circle from the 
                 center of the inner circle (in degrees from the positive x-axis in the code).</li>
                     <li><b>Angle2</b> {'-->'} the angle of the point from the center of the outer circle (in degrees 
                 from the positive x-axis).</li>
                     <li><b>Radius1</b> {'-->'} The radius of the inner circle</li>
                     <li><b>Radius2</b> {'-->'} The radius of the outer circle</li>
-                </ol>
+                </dl>
             </div>
         </div>
     );
