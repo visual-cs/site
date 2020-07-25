@@ -183,7 +183,7 @@ export default function epicycloid_html() {
 
             <div className="columns is-mobile is-centered">
                 <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
-                    <img src="images/visual/pi_epicycloid.jpg" alt="pi epicycloid"></img>
+                    <img src='/images/visual/pi_epicycloid.jpg' alt="pi epicycloid"></img>
                 </div>
             </div>
 
