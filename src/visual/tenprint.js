@@ -234,7 +234,7 @@ export default function tenprint_html() {
                 <p className="content">
                     There are 4 variables determining the position of the point:
                 </p>
-                <ol type="1">
+                <ol type="2">
                     <li><b>Angle1</b> {'-->'} the angle offsetting the center of the outer circle from the 
                 center of the inner circle (in degrees from the positive x-axis in the code).</li>
                     <li><b>Angle2</b> {'-->'} the angle of the point from the center of the outer circle (in degrees 
