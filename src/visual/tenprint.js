@@ -341,30 +341,12 @@ export default function tenprint_html() {
                 </div>
             </div>
 
-            {/* <div className="section">
-                <h1 className="title is-2">The Code</h1>
-                <h1 className="title is-3">Visualization 1</h1>
-                <p className="content">
-                    There are 4 variables determining the position of the point:
-                </p>
-<<<<<<< HEAD
-                <ol type="2">
-                    <li><b>Angle1</b> {'-->'} the angle offsetting the center of the outer circle from the 
-                center of the inner circle (in degrees from the positive x-axis in the code).</li>
-                    <li><b>Angle2</b> {'-->'} the angle of the point from the center of the outer circle (in degrees 
-                from the positive x-axis).</li>
-                    <li><b>Radius1</b> {'-->'} The radius of the inner circle</li>
-                    <li><b>Radius2</b> {'-->'} The radius of the outer circle</li>
-=======
-            </div> */}
-
             <div className="section">
                 <h1 className="title is-2">Sources</h1>
                 <ol className="title is-5" type="1">
                     <li><a href="https://www.youtube.com/watch?v=m9joBLOZVEo">10 PRINT CHR$(205.5+RND(1)); : GOTO 10, Thomas Winningham, Youtube</a></li>
                     <li><a href="https://10print.org/">10 PRINT CHR$(205.5+RND(1)); : GOTO 10, Nick Montfort et al., book</a></li>
                     <li><a href="https://www.youtube.com/watch?v=bEyTZ5ZZxZs">Coding Challenge #76: 10PRINT in p5.js, The Coding Train, Youtube</a></li>
->>>>>>> ed5fbb78d5039aebec79384c116a32ee566a4454
                 </ol>
             </div>
         </div>
