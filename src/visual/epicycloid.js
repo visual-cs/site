@@ -129,7 +129,7 @@ function epicycloid_trace(p) {
     }
 }
 
-export function epicycloid_html() {
+export default function epicycloid_html() {
     return(
         <div>
             <div className="section">

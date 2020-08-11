@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { epicycloid_html } from './epicycloid';
+import epicycloid_html from './epicycloid';
 import tenprint_html from './tenprint';
 import boids_html from './boids';
 
