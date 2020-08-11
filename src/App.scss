@@ -11,11 +11,11 @@ body {
     background-color: hsl(0, 0%, 96%);
 }
 
+// custom css
 .navbar-menu {
     margin-right: 0 !important;
 }
 
-// custom css
 .navbar-start { // fixes is-expanded on the navbar items
     flex-grow: 1;
     text-align: center;
@@ -33,3 +33,4 @@ body {
 }
 
 @import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/highlight.js/scss/grayscale.scss";
