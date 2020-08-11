@@ -1,7 +1,7 @@
 import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 
-function epicycloid (p) {
+function epicycloid(p) {
     let inner, ratioSlider, path;
     let radOut, radIn, ratio, xCentOut, yCentOut, ptX, ptY;
     let speed = 0.1;//angle per update
@@ -64,7 +64,6 @@ function epicycloid (p) {
             ptX = p.width / 2 + (radOut + radIn) * p.cos(ang) - radOut * p.cos((ratio + 1) * ang);
             ptY = p.height / 2 + (radOut + radIn) * p.sin(ang) - radOut * p.sin((ratio + 1) * ang);
             path.point(ptX, ptY);
-            console.log(ptX, ptY);
     
             p.line(xCentOut, yCentOut, ptX, ptY);
             ang -= speed;
@@ -130,7 +129,7 @@ function epicycloid_trace(p) {
     }
 }
 
-export default function epicycloid_html() {
+export function epicycloid_html() {
     return(
         <div>
             <div className="section">
@@ -183,7 +182,7 @@ export default function epicycloid_html() {
 
             <div className="columns is-mobile is-centered">
                 <div className="column is-full-mobile is-three-quarters-tablet is-half-desktop is-half-widescreen is-two-fifths-fullhd">
-                    <img src='/images/visual/pi_epicycloid.jpg' alt="pi epicycloid"></img>
+                    <img src='/images/visual/epicycloid/pi_epicycloid.jpg' alt="pi epicycloid"></img>
                 </div>
             </div>
 
