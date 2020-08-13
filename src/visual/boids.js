@@ -1,22 +1,6 @@
 import React from 'react';
-import P5Wrapper from 'react-p5-wrapper';
 import Highlight from 'react-highlight';
 
-
-function boids(p) {
-    let canvas;
-
-    p.setup = function () {
-        let style = window.getComputedStyle(document.getElementById('P5Canvas1'), ':after');
-        let canvas_width = parseFloat(style.width);
-        let canvas_height = parseFloat(style.height);
-        console.log(canvas_width, canvas_height);
-
-        canvas = p.createCanvas(canvas_width, canvas_height);
-        canvas.parent('P5Canvas1');
-        p.background(100);
-    }
-}
 
 export default function boids_html() {
     return(
@@ -124,7 +108,9 @@ export default function boids_html() {
                     <h4>Cohesion:</h4>
 
                     <h2>Demo</h2>
-
+                    <div className="p5Container">
+                        <script type="text/p5"></script>
+                    </div>
                     <h2>Sources</h2>
                     <ol type="1">
                         <li><a href="https://www.youtube.com/watch?v=mhjuuHl6qHM">
