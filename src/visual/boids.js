@@ -108,9 +108,11 @@ export default function boids_html() {
                     <h4>Cohesion:</h4>
 
                     <h2>Demo</h2>
-                    <div className="p5Container">
-                        <script type="text/p5"></script>
+
+                    <div className="image is-2by1">
+                        <iframe className="has-ratio" title="Demo" src="/sketches/boids/index.html"></iframe>
                     </div>
+
                     <h2>Sources</h2>
                     <ol type="1">
                         <li><a href="https://www.youtube.com/watch?v=mhjuuHl6qHM">
